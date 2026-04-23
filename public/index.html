@@ -19,8 +19,8 @@
   --border: rgba(255,255,255,0.06);
   --border-md: rgba(255,255,255,0.1);
   --text: #e8eaf0;
-  --text-muted: #8b90a8;
-  --text-hint: #555a72;
+  --text-muted: #a8adc4;
+  --text-hint: #7c82a0;
   --accent: #6c63ff;
   --accent-light: rgba(108,99,255,0.15);
   --accent-glow: rgba(108,99,255,0.4);
@@ -145,7 +145,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); font
 /* SECTION LABELS */
 .section-label {
   font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
-  color: var(--text-hint); text-transform: uppercase;
+  color: var(--text-muted); text-transform: uppercase;
   margin-bottom: 12px; margin-top: 2rem;
   scroll-margin-top: 1rem;
   display: flex; align-items: center; gap: 10px;
@@ -169,7 +169,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); font
   background: linear-gradient(90deg, var(--accent), transparent);
   opacity: 0.6;
 }
-.metric .m-label { font-size: 11px; color: var(--text-hint); margin-bottom: 8px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.metric .m-label { font-size: 11px; color: var(--text-muted); margin-bottom: 8px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
 .metric .m-value { font-size: 28px; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
 .metric .m-sub { font-size: 11px; margin-top: 6px; font-family: var(--mono); }
 .up { color: var(--green); } .down { color: var(--red); } .neutral { color: var(--text-muted); }
@@ -192,7 +192,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); font
   transition: border-color 0.2s;
 }
 .card:hover { border-color: var(--border-md); }
-.card-title { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+.card-title { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text); margin-bottom: 1rem; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
 .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
 
@@ -216,7 +216,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); font
 .tbl { width: 100%; border-collapse: collapse; font-size: 12px; }
 .tbl th {
   font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--text-hint);
+  text-transform: uppercase; color: var(--text-muted);
   padding: 8px 12px; border-bottom: 1px solid var(--border); text-align: left;
 }
 .tbl td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text); }
@@ -242,9 +242,9 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); font
   transition: border-color 0.2s;
 }
 .channel-card:hover { border-color: var(--border-md); }
-.channel-card .ch-name { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-hint); margin-bottom: 8px; }
+.channel-card .ch-name { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
 .channel-card .ch-conv { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
-.channel-card .ch-sub { font-size: 10px; color: var(--text-muted); margin-top: 4px; font-family: var(--mono); }
+.channel-card .ch-sub { font-size: 10px; color: var(--text); margin-top: 4px; font-family: var(--mono); }
 .ch-bar { height: 3px; border-radius: 2px; background: var(--border); margin-top: 10px; overflow: hidden; }
 .ch-bar-fill { height: 100%; border-radius: 2px; }
 
@@ -361,7 +361,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
       </a>
     </div>
 
-    <div class="sidebar-filters">
+    <div class="sidebar-filters" style="border-top: 1px solid var(--border); padding-top: 1rem;">
       <div>
         <div class="filter-label">Active funnel</div>
         <select class="filter-select" id="funnelSelect" onchange="onFunnelChange(this.value)">
@@ -425,8 +425,8 @@ const STEP_COLORS = ['#6c63ff','#4ade80','#60a5fa','#fbbf24','#f472b6','#2dd4bf'
 const stepColor = i => STEP_COLORS[i % STEP_COLORS.length];
 const channelColor = ch => ({ web: '#60a5fa', mobile: '#4ade80', email: '#fbbf24', referral: '#f472b6' }[ch] || '#8b90a8');
 
-const tickStyle = { color: '#555a72', font: { family: "'DM Mono', monospace", size: 10 } };
-const gridColor = 'rgba(255,255,255,0.04)';
+const tickStyle = { color: '#a8adc4', font: { family: "'DM Mono', monospace", size: 10 } };
+const gridColor = 'rgba(255,255,255,0.08)';
 
 function makeChart(id, config) {
   if (chartInstances[id]) { chartInstances[id].destroy(); delete chartInstances[id]; }
@@ -769,7 +769,7 @@ function renderChannelCards(channels) {
     const color = channelColor(ch.channel);
     return `<div class="channel-card">
       <div class="ch-name">${ch.channel || 'unknown'}</div>
-      <div class="ch-conv" style="color:${color}">${ch.conversion_rate != null ? ch.conversion_rate + '%' : '—'}</div>
+      <div class="ch-conv" style="color:${color}">${ch.conversion_rate != null ? Number(ch.conversion_rate).toFixed(1) + '%' : '—'}</div>
       <div class="ch-sub">${ch.started} started · ${ch.completed} completed</div>
       <div class="ch-bar"><div class="ch-bar-fill" style="width:${ch.conversion_rate||0}%;background:${color};box-shadow:0 0 8px ${color}60;"></div></div>
     </div>`;
@@ -834,7 +834,7 @@ function renderDropChart(steps) {
       layout: { padding: { top: 20 } },
       plugins: {
         legend: { display: false },
-        datalabels: { anchor: 'end', align: 'top', color: '#8b90a8', font: { family: "'DM Mono'", size: 10 }, formatter: v => v > 0 ? v + '%' : '' }
+        datalabels: { anchor: 'end', align: 'top', color: '#c8ccde', font: { family: "'DM Mono'", size: 10 }, formatter: v => v > 0 ? v + '%' : '' }
       },
       scales: {
         x: { grid: { display: false }, ticks: { ...tickStyle, maxRotation: 25 } },
@@ -855,7 +855,7 @@ function renderTimeChart(time) {
       layout: { padding: { top: 20 } },
       plugins: {
         legend: { display: false },
-        datalabels: { anchor: 'end', align: 'top', color: '#8b90a8', font: { family: "'DM Mono'", size: 10 }, formatter: v => v > 0 ? v + 'm' : '' }
+        datalabels: { anchor: 'end', align: 'top', color: '#c8ccde', font: { family: "'DM Mono'", size: 10 }, formatter: v => v > 0 ? v + 'm' : '' }
       },
       scales: {
         x: { grid: { display: false }, ticks: tickStyle },
@@ -875,7 +875,7 @@ function renderChannelCharts(channels) {
     options: {
       responsive: true, maintainAspectRatio: false,
       layout: { padding: { top: 20 } },
-      plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', color: '#8b90a8', font: { family: "'DM Mono'", size: 10 }, formatter: v => v > 0 ? v : '' } },
+      plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', color: '#c8ccde', font: { family: "'DM Mono'", size: 10 }, formatter: v => v > 0 ? v : '' } },
       scales: { x: { grid: { display: false }, ticks: tickStyle }, y: { grid: { color: gridColor }, ticks: tickStyle, beginAtZero: true } }
     }
   });
@@ -885,7 +885,7 @@ function renderChannelCharts(channels) {
     options: {
       responsive: true, maintainAspectRatio: false,
       layout: { padding: { top: 20 } },
-      plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', color: '#8b90a8', font: { family: "'DM Mono'", size: 10 }, formatter: v => v > 0 ? v + '%' : '' } },
+      plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', color: '#c8ccde', font: { family: "'DM Mono'", size: 10 }, formatter: v => v > 0 ? v + '%' : '' } },
       scales: { x: { grid: { display: false }, ticks: tickStyle }, y: { max: 100, grid: { color: gridColor }, ticks: { ...tickStyle, callback: v => v + '%' }, beginAtZero: true } }
     }
   });
