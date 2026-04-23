@@ -19,8 +19,8 @@
   --border: rgba(255,255,255,0.06);
   --border-md: rgba(255,255,255,0.1);
   --text: #e8eaf0;
-  --text-muted: #a8adc4;
-  --text-hint: #7c82a0;
+  --text-muted: #c8ccde;
+  --text-hint: #b0b5cc;
   --accent: #6c63ff;
   --accent-light: rgba(108,99,255,0.15);
   --accent-glow: rgba(108,99,255,0.4);
@@ -425,7 +425,7 @@ const STEP_COLORS = ['#6c63ff','#4ade80','#60a5fa','#fbbf24','#f472b6','#2dd4bf'
 const stepColor = i => STEP_COLORS[i % STEP_COLORS.length];
 const channelColor = ch => ({ web: '#60a5fa', mobile: '#4ade80', email: '#fbbf24', referral: '#f472b6' }[ch] || '#8b90a8');
 
-const tickStyle = { color: '#a8adc4', font: { family: "'DM Mono', monospace", size: 10 } };
+const tickStyle = { color: '#e2e4ef', font: { family: "'DM Mono', monospace", size: 11 } };
 const gridColor = 'rgba(255,255,255,0.08)';
 
 function makeChart(id, config) {
@@ -834,7 +834,7 @@ function renderDropChart(steps) {
       layout: { padding: { top: 20 } },
       plugins: {
         legend: { display: false },
-        datalabels: { anchor: 'end', align: 'top', color: '#c8ccde', font: { family: "'DM Mono'", size: 10 }, formatter: v => v > 0 ? v + '%' : '' }
+        datalabels: { anchor: 'end', align: 'top', color: '#e8eaf0', font: { family: "'DM Mono'", size: 11 }, formatter: v => v > 0 ? v + '%' : '' }
       },
       scales: {
         x: { grid: { display: false }, ticks: { ...tickStyle, maxRotation: 25 } },
@@ -855,7 +855,7 @@ function renderTimeChart(time) {
       layout: { padding: { top: 20 } },
       plugins: {
         legend: { display: false },
-        datalabels: { anchor: 'end', align: 'top', color: '#c8ccde', font: { family: "'DM Mono'", size: 10 }, formatter: v => v > 0 ? v + 'm' : '' }
+        datalabels: { anchor: 'end', align: 'top', color: '#e8eaf0', font: { family: "'DM Mono'", size: 11 }, formatter: v => v > 0 ? v + 'm' : '' }
       },
       scales: {
         x: { grid: { display: false }, ticks: tickStyle },
@@ -875,7 +875,7 @@ function renderChannelCharts(channels) {
     options: {
       responsive: true, maintainAspectRatio: false,
       layout: { padding: { top: 20 } },
-      plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', color: '#c8ccde', font: { family: "'DM Mono'", size: 10 }, formatter: v => v > 0 ? v : '' } },
+      plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', color: '#e8eaf0', font: { family: "'DM Mono'", size: 11 }, formatter: v => v > 0 ? v : '' } },
       scales: { x: { grid: { display: false }, ticks: tickStyle }, y: { grid: { color: gridColor }, ticks: tickStyle, beginAtZero: true } }
     }
   });
@@ -885,7 +885,7 @@ function renderChannelCharts(channels) {
     options: {
       responsive: true, maintainAspectRatio: false,
       layout: { padding: { top: 20 } },
-      plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', color: '#c8ccde', font: { family: "'DM Mono'", size: 10 }, formatter: v => v > 0 ? v + '%' : '' } },
+      plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'top', color: '#e8eaf0', font: { family: "'DM Mono'", size: 11 }, formatter: v => v > 0 ? v + '%' : '' } },
       scales: { x: { grid: { display: false }, ticks: tickStyle }, y: { max: 100, grid: { color: gridColor }, ticks: { ...tickStyle, callback: v => v + '%' }, beginAtZero: true } }
     }
   });
