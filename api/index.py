@@ -2,7 +2,7 @@ from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, HTMLResponse
 from sqlalchemy import text
-from database import SessionLocal
+from api.database import SessionLocal
 from pydantic import BaseModel
 from typing import Optional
 
@@ -1367,4 +1367,3 @@ def funnel_user_drilldown(
         db.close()
 
 
-        
