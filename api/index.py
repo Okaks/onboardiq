@@ -1365,3 +1365,6 @@ def funnel_user_drilldown(
         }
     finally:
         db.close()
+
+
+        
