@@ -22,7 +22,9 @@ app.add_middleware(
 
 @app.get("/")
 def serve_dashboard():
-    html_path = os.path.join(os.path.dirname(__file__), "..", "public", "index.html")
+    # Vercel runs from /var/task, so path from project root
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    html_path = os.path.join(base_dir, "public", "index.html")
     with open(html_path, "r", encoding="utf-8") as f:
         html_content = f.read()
     return HTMLResponse(content=html_content)
