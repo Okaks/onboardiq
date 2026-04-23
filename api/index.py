@@ -1,11 +1,11 @@
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, HTMLResponse
 from sqlalchemy import text
 from api.database import SessionLocal
 from pydantic import BaseModel
 from typing import Optional
-from mangum import Mangum
+import os
 
 app = FastAPI()
 
@@ -15,6 +15,17 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+
+# ---------- Dashboard ----------
+
+@app.get("/")
+def serve_dashboard():
+    html_path = os.path.join(os.path.dirname(__file__), "..", "public", "index.html")
+    with open(html_path, "r", encoding="utf-8") as f:
+        html_content = f.read()
+    return HTMLResponse(content=html_content)
 
 
 # ---------- Models ----------
@@ -459,7 +470,3 @@ def funnel_user_drilldown(
         }
     finally:
         db.close()
-
-
-# Vercel serverless handler
-handler = Mangum(app)

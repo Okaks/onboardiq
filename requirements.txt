@@ -2,4 +2,3 @@ fastapi
 sqlalchemy
 psycopg2-binary
 pydantic
-mangum
