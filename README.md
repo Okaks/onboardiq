@@ -118,7 +118,7 @@ export DATABASE_URL="your_neon_connection_string"
 uvicorn api.index:app --reload
 ```
 
-Visit `https://onboardiq-eight.vercel.app/` to view the dashboard.
+Visit https://onboardiq-eight.vercel.app/ to view the dashboard.
 
 ---
 
