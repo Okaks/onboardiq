@@ -133,4 +133,4 @@ Visit https://onboardiq-eight.vercel.app/ to view the dashboard.
 ## Author
 
 **Blessing Okakwu** — Growth & Product Analyst
-[Portfolio](https://bokakwu.wixsite.com/okakwus-analytics) · [LinkedIn](https://www.linkedin.com/in/blessing-okakwu/) · [GitHub](https://github.com/Okaks)
+[Portfolio](https://bokakwu.wixsite.com/okakwus-analytics) · [LinkedIn](https://www.linkedin.com/in/blessing-okakwu/) · [GitHub](https://github.com/Okaks/onboardiq)
