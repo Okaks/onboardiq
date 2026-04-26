@@ -3,6 +3,7 @@
 A funnel analytics dashboard that gives product and growth teams complete visibility into their user onboarding journey, from the moment a user starts, to every step they take, to whether they complete or abandon the process entirely.
 
 **Demo Video:** 
+## Demo Video: https://www.loom.com/share/32bacd5db13f40fd9e2103bc886cb358
 
 ---
 
